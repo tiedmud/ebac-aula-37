@@ -19,8 +19,8 @@ public class UsuarioController {
 
     @GetMapping
     @Operation(summary="Listar usuários", description="Retornar todos os itens da lista.")
-    public Collection<Usuario> listarTodos() {
-        return usuarios.values();
+        public Collection<Usuario> listarTodos() {
+            return usuarios.values();
     }
 
     @PostMapping
