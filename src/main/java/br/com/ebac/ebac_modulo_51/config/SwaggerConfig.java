@@ -14,17 +14,15 @@ public class SwaggerConfig {
 
     @Bean
     public OpenAPI customOpenAPI() {
-        return new OpenAPI().info(new Info()
+        return new OpenAPI()
+                .info(new Info()
                 .title("API de Usuários")
-                .description("Documentação da API de Usuários")
-                .version("1.0")
-                .contact(new Contact().name("Admin").email("admin@a.com").url("https://admin.com/contato")))
+                .version("1.0"))
                 .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
-                .components(new Components()
-                        .addSecuritySchemes("bearerAuth", new SecurityScheme()
+                .components(new Components().addSecuritySchemes("bearerAuth", new SecurityScheme()
                         .name("Authorization")
                         .type(SecurityScheme.Type.HTTP)
                         .scheme("bearer")
                         .bearerFormat("JWT")));
-    }
+        }
 }
